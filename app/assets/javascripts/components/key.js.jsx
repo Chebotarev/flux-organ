@@ -5,6 +5,9 @@ var Key = React.createClass({
     KeyStore.addChangeListener(this.handleChange);
   },
 
+  componentWillUnmount: function () {
+  },
+
   handleChange: function () {
     var keys = KeyStore.all();
     if (keys.indexOf(this.props.noteName) !== -1) {
@@ -15,8 +18,8 @@ var Key = React.createClass({
   },
 
   render: function() {
-    return <div className="organ-key">
-        { this.props.noteName }
-      </div>
+    return (<div className="organ-key">
+        {this.props.noteName}
+      </div>)
   }
 });
