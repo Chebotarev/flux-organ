@@ -18,8 +18,10 @@
     dispatcherId: AppDispatcher.register(function (payload) {
       switch(payload.type) {
         case KeyConstants.KEYDOWN:
-          _keysPressed.push(payload.key);
-          KeyStore.changed();
+          if (_keysPressed.indexOf(payload.key) === -1) {
+            _keysPressed.push(payload.key);
+            KeyStore.changed();
+          }
           break;
         case KeyConstants.KEYUP:
           _keysPressed.splice(_keysPressed.indexOf(payload.key), 1);

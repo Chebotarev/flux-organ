@@ -11,3 +11,7 @@ div.organ-key {
   float: left;
   margin-right: 5px;
 }
+
+div.organ-key.pressed {
+  background-color: lightgray;
+}

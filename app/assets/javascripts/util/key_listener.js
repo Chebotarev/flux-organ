@@ -3,6 +3,10 @@ $(window).on("keydown", function (event) {
     var key = codeTranslator[event.keyCode];
 
     KeyActions.keydown(key);
+  } else if (chordKeys[event.keyCode]) {
+    chordKeys[event.keyCode].forEach(function (tone) {
+      KeyActions.keydown(tone);
+    });
   }
 });
 
@@ -11,6 +15,10 @@ $(window).on("keyup", function (event) {
     var key = codeTranslator[event.keyCode];
 
     KeyActions.keyup(key);
+  } else if (chordKeys[event.keyCode]) {
+    chordKeys[event.keyCode].forEach(function (tone) {
+      KeyActions.keyup(tone);
+    });
   }
 });
 
@@ -24,4 +32,8 @@ var codeTranslator = {
   74: 'E4',
   75: 'F4',
   76: 'G4'
+};
+
+var chordKeys = {
+  77: ['F3', 'A3', 'C4']
 };
